@@ -17,6 +17,7 @@
 | ⏱ **속도·재현성** | 건당 **22.7초** (LLM 캐시 없이 실측) · 캐시 없이 재실행해도 판정 **164/174건 일치** |
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'pie1':'#1e88e5','pie2':'#64b5f6','pie3':'#e53935','pie4':'#fb8c00','pieStrokeColor':'#ffffff','pieOuterStrokeColor':'#8b949e','pieSectionTextColor':'#ffffff','pieTitleTextColor':'#8b949e','pieLegendTextColor':'#8b949e','pieTitleTextSize':'18px'}}}%%
 pie showData
   title 경고 174건은 어디로 갔나
   "근거와 함께 제외 (에이전트)" : 45
@@ -28,34 +29,39 @@ pie showData
 ## 구조 — 계산은 코드, 해석은 LLM, 결정은 사람
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph IN["입력"]
-    direction TB
+    direction LR
     s1["Syft SBOM<br/>(설치 상태)"]
     s2["Grype / Trivy<br/>스캔 결과"]
     s3["assets.yaml<br/>노출·중요도·담당팀"]
   end
-  subgraph CORE["에이전트 (python -m sca run)"]
+  subgraph A["분석 — 영향도·우선순위"]
     direction LR
     ing["① ingest<br/>공통 스키마"] --> enr["② enrich<br/>OSV·EPSS·KEV"] --> grp["③ 그래프<br/>팀–서비스–패키지–CVE"] --> scr["④ 위험 점수"]
-    scr --> jdg["⑤ 판정<br/>조건 추출 + 코드 확인"] --> pln["⑥ 조치 계획<br/>가중 집합 덮개"] --> rep["⑦ 리포트·티켓"]
+  end
+  subgraph B["판정·조치"]
+    direction LR
+    jdg["⑤ 판정<br/>LLM 조건 추출 + 코드 확인"] --> pln["⑥ 조치 계획<br/>가중 집합 덮개"] --> rep["⑦ 리포트·티켓"]
   end
   subgraph OUT["산출물"]
-    direction TB
+    direction LR
     o1["순위 CSV · 리포트"]
     o2["담당팀별 티켓"]
     o3["OpenVEX · KPI"]
   end
-  IN --> ing
-  rep --> OUT
-  rep --> fb["⑧ 사람 승인·기각"] -->|다음 실행에 반영| jdg
+  IN --> A --> B --> OUT
+  rep --> fb["⑧ 사람 승인·기각"]
+  fb -->|다음 실행에 반영| jdg
 
   classDef code fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
   classDef llm fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
   classDef human fill:#fff3e0,stroke:#fb8c00,color:#e65100
+  classDef io fill:#f5f5f5,stroke:#9e9e9e,color:#212121
   class ing,enr,grp,scr,pln code
   class jdg,rep llm
   class fb human
+  class s1,s2,s3,o1,o2,o3 io
 ```
 
 <sub>파랑 = 결정적 코드 · 보라 = LLM이 일부 담당(권고문 조건 추출, 티켓 문장) · 주황 = 사람</sub>
@@ -89,7 +95,13 @@ flowchart TD
   classDef code fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
   classDef human fill:#fff3e0,stroke:#fb8c00,color:#e65100
   class llm llm
+  classDef io fill:#f5f5f5,stroke:#9e9e9e,color:#212121
+  classDef ok fill:#e8f5e9,stroke:#43a047,color:#1b5e20
+  classDef bad fill:#ffebee,stroke:#e53935,color:#b71c1c
   class chk,code,ver,rules code
+  class adv,drop io
+  class na ok
+  class af bad
   class un human
 ```
 
@@ -100,6 +112,7 @@ flowchart TD
 ## 사람 검토가 남는 이유
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'pie1':'#8e24aa','pie2':'#fb8c00','pie3':'#9e9e9e','pieStrokeColor':'#ffffff','pieOuterStrokeColor':'#8b949e','pieSectionTextColor':'#ffffff','pieTitleTextColor':'#8b949e','pieLegendTextColor':'#8b949e','pieTitleTextSize':'18px'}}}%%
 pie showData
   title 사람 검토 117건의 원인
   "의존 패키지 내부 호출 여부 (콜그래프 필요)" : 87
