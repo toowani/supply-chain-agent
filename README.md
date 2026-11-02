@@ -7,6 +7,10 @@
 
 <p align="center"><img src="out/graph_top_path.png" width="760" alt="최고 위험 경로: 팀 → 서비스 → 직접 의존 → 취약 패키지 → CVE"></p>
 
+## 실행 모습
+
+<p align="center"><img src="docs/assets/demo.gif" width="760" alt="sca run 실제 실행 출력 (시간 압축)"></p>
+
 ## 한눈에 보기
 
 | | 결과 (본인 레포 5개 파일럿) |
@@ -16,57 +20,11 @@
 | 🛠 **고치기** | 업그레이드 **3건으로 잔여 위험 71.2%** 해소 (메이저 변경·Python 런타임 호환성 표시) |
 | ⏱ **속도·재현성** | 건당 **22.7초** (LLM 캐시 없이 실측) · 캐시 없이 재실행해도 판정 **164/174건 일치** |
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'pie1':'#1e88e5','pie2':'#64b5f6','pie3':'#e53935','pie4':'#fb8c00','pieStrokeColor':'#ffffff','pieOuterStrokeColor':'#8b949e','pieSectionTextColor':'#ffffff','pieTitleTextColor':'#8b949e','pieLegendTextColor':'#8b949e','pieTitleTextSize':'18px'}}}%%
-pie showData
-  title 경고 174건은 어디로 갔나
-  "근거와 함께 제외 (에이전트)" : 45
-  "제외 (사람 피드백, 데모)" : 4
-  "영향 있음 (affected)" : 8
-  "사람 검토 대기 (uncertain)" : 117
-```
+<p align="center"><img src="docs/assets/warnings.png" width="860" alt="경고 174건의 행방과 사람 검토 117건의 원인"></p>
 
 ## 구조 — 계산은 코드, 해석은 LLM, 결정은 사람
 
-```mermaid
-flowchart TB
-  subgraph IN["입력"]
-    direction LR
-    s1["Syft SBOM<br/>(설치 상태)"]
-    s2["Grype / Trivy<br/>스캔 결과"]
-    s3["assets.yaml<br/>노출·중요도·담당팀"]
-    s1 ~~~ s2 ~~~ s3
-  end
-  subgraph A["분석 — 영향도·우선순위"]
-    direction LR
-    ing["① ingest<br/>공통 스키마"] --> enr["② enrich<br/>OSV·EPSS·KEV"] --> grp["③ 그래프<br/>팀–서비스–패키지–CVE"] --> scr["④ 위험 점수"]
-  end
-  subgraph B["판정·조치"]
-    direction LR
-    jdg["⑤ 판정<br/>LLM 조건 추출 + 코드 확인"] --> pln["⑥ 조치 계획<br/>가중 집합 덮개"] --> rep["⑦ 리포트·티켓"]
-  end
-  subgraph OUT["산출물"]
-    direction LR
-    o1["순위 CSV · 리포트"]
-    o2["담당팀별 티켓"]
-    o3["OpenVEX · KPI"]
-    o1 ~~~ o2 ~~~ o3
-  end
-  IN --> A --> B --> OUT
-  OUT --> fb["⑧ 사람 승인·기각<br/>다음 실행의 판정에 반영"]
-  fb -.-> B
-
-  classDef code fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
-  classDef llm fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
-  classDef human fill:#fff3e0,stroke:#fb8c00,color:#e65100
-  classDef io fill:#f5f5f5,stroke:#9e9e9e,color:#212121
-  class ing,enr,grp,scr,pln code
-  class jdg,rep llm
-  class fb human
-  class s1,s2,s3,o1,o2,o3 io
-```
-
-<sub>파랑 = 결정적 코드 · 보라 = LLM이 일부 담당(권고문 조건 추출, 티켓 문장) · 주황 = 사람</sub>
+<p align="center"><img src="docs/assets/architecture.png" width="860" alt="구조도: 입력 → 분석 → 판정·조치 → 산출물, 사람 피드백 루프"></p>
 
 | 단계 | 하는 일 | 위치 |
 |---|---|---|
@@ -81,48 +39,17 @@ flowchart TB
 
 ## 판정 — LLM은 조건만 뽑고, 판정은 코드가
 
-```mermaid
-flowchart TD
-  adv["공개 권고문 (OSV/GHSA)"] --> llm["LLM: 발동 조건 추출<br/>API · 설정 · 플랫폼 · 입력 · 원문 인용"]
-  llm --> chk{"권고문에 있는<br/>함수명·인용인가?"}
-  chk -->|아니오| drop["버림"]
-  chk -->|예| code["코드 검색<br/>서비스 + 의존 패키지 소스"]
-  ver["버전 범위 (PEP 440 / semver)"] --> rules
-  code --> rules["규칙 12개 (sca/judge/rules.py)"]
-  rules --> na["not_affected<br/>근거 file:line + VEX"]
-  rules --> af["affected"]
-  rules --> un["uncertain → 사람"]
-
-  classDef llm fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
-  classDef code fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
-  classDef human fill:#fff3e0,stroke:#fb8c00,color:#e65100
-  class llm llm
-  classDef io fill:#f5f5f5,stroke:#9e9e9e,color:#212121
-  classDef ok fill:#e8f5e9,stroke:#43a047,color:#1b5e20
-  classDef bad fill:#ffebee,stroke:#e53935,color:#b71c1c
-  class chk,code,ver,rules code
-  class adv,drop io
-  class na ok
-  class af bad
-  class un human
-```
+<p align="center"><img src="docs/assets/judge.gif" width="760" alt="판정 과정 애니메이션: 권고문 → LLM 조건 추출 → 원문 대조 → 코드 검색 → not_affected"></p>
 
 - **내부 정보 보호**: 외부 LLM에는 공개 권고문만 보낸다. 자산 정보와 소스 코드는 코드에서만 결합한다.
 - **모델 교체**: OpenAI SDK + `base_url`. 기본은 로컬 Ollama(gpt-oss:20b), 환경변수로 OpenAI·사내 모델로 바꾼다(OpenAI 경로는 미검증).
 - **모드**: 적극(기본) = 필수 조건 하나만 없어도 제외 · 보수 = 근거가 완전할 때만 제외 (경고 감소 12.1%).
 
-## 사람 검토가 남는 이유
+## 개선 루프 — 사람의 결정이 다음 판정이 된다
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'pie1':'#8e24aa','pie2':'#fb8c00','pie3':'#9e9e9e','pieStrokeColor':'#ffffff','pieOuterStrokeColor':'#8b949e','pieSectionTextColor':'#ffffff','pieTitleTextColor':'#8b949e','pieLegendTextColor':'#8b949e','pieTitleTextSize':'18px'}}}%%
-pie showData
-  title 사람 검토 117건의 원인
-  "의존 패키지 내부 호출 여부 (콜그래프 필요)" : 87
-  "공격자 입력인지 판단 필요" : 25
-  "코드로 확인할 수 없는 조건" : 5
-```
+<p align="center"><img src="docs/assets/loop.gif" width="760" alt="개선 루프 애니메이션: uncertain → 담당자 기각 → 다음 실행에서 자동 정리 → OpenVEX → 재스캔으로 해소 확인"></p>
 
-74%가 콜그래프 문제다. 콜그래프를 붙이면 검토율이 67.2%에서 약 19%로 줄 것으로 추정한다(추정치, `out/report.md`).
+사람 검토 117건 중 74%(87건)는 의존 패키지 내부 호출 여부 문제다. 콜그래프를 붙이면 검토율이 67.2%에서 약 19%로 줄 것으로 추정한다(추정치).
 
 ## 실행
 
