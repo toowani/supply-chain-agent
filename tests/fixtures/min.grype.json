@@ -1,0 +1,15 @@
+{"matches": [
+ {"vulnerability": {"id": "GHSA-jfh8-c2jp-5v3q", "dataSource": "https://github.com/advisories/GHSA-jfh8-c2jp-5v3q",
+   "namespace": "github:language:java", "severity": "Critical",
+   "cvss": [{"type": "Primary", "version": "3.1", "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+             "metrics": {"baseScore": 10.0}}],
+   "fix": {"versions": ["2.15.0"], "state": "fixed"}},
+  "relatedVulnerabilities": [{"id": "CVE-2021-44228", "dataSource": "nvd", "cvss": []}],
+  "matchDetails": [{"matcher": "java-matcher"}],
+  "artifact": {"name": "log4j-core", "version": "2.14.1", "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"}},
+ {"vulnerability": {"id": "GHSA-q2q7-5pp4-w6pg", "dataSource": "https://github.com/advisories/GHSA-q2q7-5pp4-w6pg",
+   "severity": "Medium", "cvss": [], "fix": {"versions": ["1.26.5"], "state": "fixed"}},
+  "relatedVulnerabilities": [{"id": "CVE-2021-33503"}],
+  "matchDetails": [{"matcher": "python-matcher"}],
+  "artifact": {"name": "urllib3", "version": "1.26.4", "purl": "pkg:pypi/urllib3@1.26.4"}}
+]}

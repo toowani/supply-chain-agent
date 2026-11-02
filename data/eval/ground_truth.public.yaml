@@ -1,0 +1,450 @@
+# 공개용 요약: 근거(코드 인용)는 비공개 레포 내용이라 로컬 ground_truth.yaml 에만 있음
+items:
+- id: G04
+  set: core
+  service: podcast4life
+  package: pypi:lightning@2.6.0
+  vuln_id: CVE-2026-58659
+  label: affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G08
+  set: core
+  service: podcast4life
+  package: pypi:certifi@2026.7.22
+  vuln_id: GHSA-6q48-6c7w-9gw2
+  label: affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G47
+  set: core
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-96643
+  label: uncertain
+  labeled_by: claude-draft (2 independent passes agreed; confidence low)
+  reviewed: false
+- id: G01
+  set: core
+  service: podcast4life
+  package: pypi:urllib3@1.26.20
+  vuln_id: CVE-2026-21441
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G02
+  set: core
+  service: podcast4life
+  package: pypi:setuptools@58.0.4
+  vuln_id: CVE-2024-6345
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G03
+  set: core
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-112900
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G05
+  set: core
+  service: podcast4life
+  package: pypi:aiohttp@3.13.5
+  vuln_id: CVE-2026-54277
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G06
+  set: core
+  service: podcast4life
+  package: pypi:fsspec@2025.10.0
+  vuln_id: CVE-2026-104851
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G09
+  set: core
+  service: podcast4life
+  package: pypi:oauthlib@3.3.1
+  vuln_id: CVE-2026-49272
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G10
+  set: core
+  service: podcast4life
+  package: pypi:rembg@2.0.61
+  vuln_id: CVE-2026-115924
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G12
+  set: core
+  service: podcast4life
+  package: pypi:anyio@4.12.1
+  vuln_id: CVE-2026-63374
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G16
+  set: core
+  service: toowani-auth
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-19534
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G17
+  set: core
+  service: class-toowani
+  package: npm:deepmerge@4.3.1
+  vuln_id: CVE-2026-93753
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G18
+  set: core
+  service: podcast4life
+  package: pypi:pip@26.0.1
+  vuln_id: CVE-2026-13346
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G21
+  set: core
+  service: podcast4life
+  package: pypi:python-dotenv@1.2.1
+  vuln_id: CVE-2026-28684
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G22
+  set: core
+  service: toowani-auth
+  package: npm:sharp@0.35.2
+  vuln_id: CVE-2026-114112
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G26
+  set: core
+  service: podcast4life
+  package: pypi:torch@2.8.0
+  vuln_id: CVE-2025-3000
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G50
+  set: core
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-55798
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G52
+  set: core
+  service: podcast4life
+  package: pypi:urllib3@1.26.20
+  vuln_id: CVE-2026-44431
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G55
+  set: core
+  service: podcast4life
+  package: pypi:aiohttp@3.13.5
+  vuln_id: CVE-2026-34993
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G07
+  set: extended
+  service: podcast4life
+  package: pypi:pyasn1@0.6.4
+  vuln_id: CVE-2026-119195
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G11
+  set: extended
+  service: podcast4life
+  package: pypi:pytorch-lightning@2.6.0
+  vuln_id: CVE-2026-31221
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G13
+  set: extended
+  service: podcast4life
+  package: pypi:multidict@6.7.1
+  vuln_id: CVE-2026-104874
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G14
+  set: extended
+  service: podcast4life
+  package: pypi:mako@1.3.12
+  vuln_id: CVE-2026-102991
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G15
+  set: extended
+  service: podcast4life
+  package: pypi:filelock@3.19.1
+  vuln_id: CVE-2026-112910
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G19
+  set: extended
+  service: class-toowani
+  package: npm:brace-expansion@2.1.4
+  vuln_id: CVE-2026-102278
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G20
+  set: extended
+  service: class-toowani
+  package: npm:brace-expansion@5.0.9
+  vuln_id: CVE-2026-102278
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G23
+  set: extended
+  service: podcast4life
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-19534
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G24
+  set: extended
+  service: class-toowani
+  package: npm:glob@10.5.0
+  vuln_id: CVE-2026-118773
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G25
+  set: extended
+  service: class-toowani
+  package: npm:glob@13.0.6
+  vuln_id: CVE-2026-118773
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G27
+  set: extended
+  service: podcast4life
+  package: pypi:requests@2.32.5
+  vuln_id: CVE-2026-25645
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G28
+  set: extended
+  service: class-toowani
+  package: npm:minimatch@10.2.6
+  vuln_id: CVE-2026-118764
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G29
+  set: extended
+  service: class-toowani
+  package: npm:minimatch@9.0.9
+  vuln_id: CVE-2026-118764
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G30
+  set: extended
+  service: podcast4life
+  package: npm:sharp@0.35.4
+  vuln_id: CVE-2026-114111
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G31
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-59197
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G32
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-42308
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G33
+  set: extended
+  service: podcast4life
+  package: pypi:aiohttp@3.13.5
+  vuln_id: CVE-2026-111066
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G34
+  set: extended
+  service: podcast4life
+  package: pypi:aiohttp@3.13.5
+  vuln_id: CVE-2026-111749
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G35
+  set: extended
+  service: toowani-auth
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-87029
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G36
+  set: extended
+  service: toowani-auth
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-85008
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G37
+  set: extended
+  service: podcast4life
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-87029
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G38
+  set: extended
+  service: podcast4life
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-85008
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G39
+  set: extended
+  service: podcast4life
+  package: pypi:urllib3@1.26.20
+  vuln_id: CVE-2025-50181
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G40
+  set: extended
+  service: podcast4life
+  package: pypi:urllib3@1.26.20
+  vuln_id: CVE-2026-97687
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G41
+  set: extended
+  service: podcast4life
+  package: pypi:setuptools@58.0.4
+  vuln_id: CVE-2025-47273
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G42
+  set: extended
+  service: podcast4life
+  package: pypi:setuptools@58.0.4
+  vuln_id: GHSA-xmj3-9gf7-h52w
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G43
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-112893
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G44
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-112403
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G45
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-59199
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G46
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-42309
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G48
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-112402
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G49
+  set: extended
+  service: podcast4life
+  package: pypi:pillow@11.3.0
+  vuln_id: CVE-2026-112898
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence high)
+  reviewed: false
+- id: G51
+  set: extended
+  service: podcast4life
+  package: pypi:urllib3@1.26.20
+  vuln_id: CVE-2025-66471
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G53
+  set: extended
+  service: podcast4life
+  package: pypi:torch@2.8.0
+  vuln_id: CVE-2025-3001
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G54
+  set: extended
+  service: podcast4life
+  package: pypi:torch@2.8.0
+  vuln_id: CVE-2025-2999
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false
+- id: G56
+  set: extended
+  service: toowani-auth
+  package: npm:undici@7.29.0
+  vuln_id: CVE-2026-109383
+  label: not_affected
+  labeled_by: claude-draft (2 independent passes agreed; confidence medium)
+  reviewed: false

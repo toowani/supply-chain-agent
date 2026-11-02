@@ -1,0 +1,29 @@
+# risk = likelihood × impact × 100
+#   likelihood = 1.0 if in CISA KEV else EPSS (prior when no EPSS → flagged "정보 부족")
+#   impact     = (CVSS / 10) × exposure_weight × criticality_weight × dev_weight
+# All weights are assumptions (가정) for the pilot; change here, not in code.
+
+exposure_weight:
+  internet: 1.0
+  internal: 0.5
+
+criticality_weight:
+  1: 0.4
+  2: 0.7
+  3: 1.0
+
+likelihood:
+  kev: 1.0
+  epss_missing_prior: median  # "median" = median EPSS of this run's scored CVEs, or a number
+
+# npm devDependency-only packages (build/test tooling, not shipped at runtime)
+dev_weight: 0.5
+
+# when no CVSS vector/score is published, fall back from severity label
+cvss_fallback:
+  Critical: 9.5
+  High: 7.5
+  Medium: 5.0
+  Low: 2.5
+  Negligible: 0.5
+  Unknown: 5.0

@@ -1,0 +1,56 @@
+# EXAMPLE. Copy to services.local.yaml (gitignored) and fill in real paths.
+# How each "service" is scanned (technical inventory).
+# Business attributes (exposure / criticality / owner) live in assets.yaml.
+#
+# component kinds
+#   python-venv  : existing virtualenv → syft python-installed-package-cataloger
+#   python-reqs  : no venv → uv installs `manifests` into work/venvs/<service> (py 3.11), then scanned
+#   npm-lock     : package-lock.json (dev deps included) → syft javascript-lock-cataloger
+#   sbom         : a given CycloneDX SBOM (any tool) + vulnerability report (Grype or Trivy JSON);
+#                  no scan. Direct/transitive come from the SBOM's `dependencies`. `repo` is optional:
+#                  without it, code-condition checks are skipped and those findings go to a human.
+# `manifests` are only used to tell direct from transitive dependencies.
+
+services:
+  - name: podcast4life
+    repo: ${REPOS}/podcast4life
+    components:
+      - kind: python-venv
+        venv: pipeline/.venv
+        manifests: [pipeline/requirements.txt, pipeline/requirements-publish.txt]
+      - kind: npm-lock
+        path: pipeline/comments-worker
+
+  - name: wani-briefing-routine
+    repo: ${REPOS}/wani-briefing-routine
+    components:
+      - kind: python-reqs
+        manifests: [requirements.txt]
+
+  - name: lms-watch
+    repo: ${REPOS}/lms-watch
+    clone: <owner>/lms-watch   # private repo; cloned with gh when missing
+    components:
+      - kind: python-reqs
+        manifests: [requirements.txt]
+
+  - name: class-toowani
+    repo: ${REPOS}/class-toowani
+    components:
+      - kind: npm-lock
+        path: .
+
+  - name: toowani-auth
+    repo: ${REPOS}/toowani-auth
+    components:
+      - kind: npm-lock
+        path: .
+
+  # SBOM-only service (e.g. data handed over as files). Paths: absolute, or relative to the project root.
+  # - name: example-sbom-service
+  #   repo: ${REPOS}/example-sbom-service   # optional; enables code-condition checks
+  #   components:
+  #     - kind: sbom
+  #       sbom: data/inputs/example.cdx.json
+  #       vulns: data/inputs/example.trivy.json
+  #       vulns_format: trivy                 # grype (default) | trivy

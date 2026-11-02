@@ -1,0 +1,135 @@
+{
+ "k": 3,
+ "total_risk": 25.4807,
+ "actions": [
+  {
+   "kind": "upgrade",
+   "ecosystem": "pypi",
+   "package": "pillow",
+   "target_version": "13.0.0",
+   "services": [
+    "podcast4life"
+   ],
+   "from_versions": [
+    "11.3.0"
+   ],
+   "covers": [
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112390",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112391",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112393",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112394",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112396",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112397",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112398",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112400",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112401",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112402",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112406",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112891",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112893",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112894",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112896",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112897",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112898",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112899",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112900",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112901",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-112902",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-25990",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-40192",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-42308",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-42309",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-42311",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-54058",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-54060",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-55380",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-59198",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-59199",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-59204",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-59205",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96636",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96637",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96638",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96639",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96640",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96641",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96643",
+    "podcast4life|pypi:pillow@11.3.0|CVE-2026-96778",
+    "podcast4life|pypi:pillow@11.3.0|GHSA-78g4-xqwv-q3g8"
+   ],
+   "risk_covered": 11.5446,
+   "major_bump": true,
+   "runtime_upgrade": true,
+   "runtime_note": "Python 3.9.6 → >=3.11",
+   "note": "podcast4life: 목표 버전은 Python >=3.11 필요, 서비스는 3.9.6 → 런타임 업그레이드 필요"
+  },
+  {
+   "kind": "upgrade",
+   "ecosystem": "pypi",
+   "package": "aiohttp",
+   "target_version": "3.14.4",
+   "services": [
+    "podcast4life"
+   ],
+   "from_versions": [
+    "3.13.5"
+   ],
+   "covers": [
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111063",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111064",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111066",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111748",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111749",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111750",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-47265",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-50269",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54273",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54276",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54277",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54278",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54279",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54280",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-59881",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-69243",
+    "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-69244",
+    "podcast4life|pypi:aiohttp@3.13.5|GHSA-2g87-pp6c-29x5"
+   ],
+   "risk_covered": 3.7294,
+   "major_bump": false,
+   "runtime_upgrade": true,
+   "runtime_note": "Python 3.9.6 → >=3.10",
+   "note": "podcast4life: 목표 버전은 Python >=3.10 필요, 서비스는 3.9.6 → 런타임 업그레이드 필요"
+  },
+  {
+   "kind": "upgrade",
+   "ecosystem": "pypi",
+   "package": "urllib3",
+   "target_version": "2.8.0",
+   "services": [
+    "podcast4life"
+   ],
+   "from_versions": [
+    "1.26.20"
+   ],
+   "covers": [
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2025-50181",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2025-66418",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2025-66471",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2026-21441",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2026-44431",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2026-97687",
+    "podcast4life|pypi:urllib3@1.26.20|CVE-2026-97689"
+   ],
+   "risk_covered": 2.8679,
+   "major_bump": true,
+   "runtime_upgrade": false,
+   "runtime_note": "",
+   "note": ""
+  }
+ ],
+ "covered_risk": 18.1419,
+ "coverage": 0.712,
+ "unfixable": [
+  "podcast4life|pypi:pytorch-lightning@2.6.0|CVE-2026-31221"
+ ]
+}

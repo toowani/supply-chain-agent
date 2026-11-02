@@ -1,0 +1,13 @@
+{"SchemaVersion": 2, "ArtifactName": "finals-svc", "Results": [
+ {"Target": "pom.xml", "Class": "lang-pkgs", "Type": "pom", "Vulnerabilities": [
+  {"VulnerabilityID": "CVE-2021-44228", "VendorIDs": ["GHSA-jfh8-c2jp-5v3q"],
+   "PkgName": "org.apache.logging.log4j:log4j-core",
+   "PkgIdentifier": {"PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"},
+   "InstalledVersion": "2.14.1", "FixedVersion": "2.15.0, 2.3.1, 2.16.0", "Status": "fixed",
+   "Severity": "CRITICAL", "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-44228",
+   "CVSS": {"nvd": {"V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H", "V3Score": 10.0}}}]},
+ {"Target": "requirements.txt", "Class": "lang-pkgs", "Type": "pip", "Vulnerabilities": [
+  {"VulnerabilityID": "GHSA-q2q7-5pp4-w6pg", "VendorIDs": ["CVE-2021-33503"], "PkgName": "urllib3",
+   "InstalledVersion": "1.26.4", "FixedVersion": "1.26.5", "Status": "fixed", "Severity": "HIGH",
+   "CVSS": {"ghsa": {"V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H", "V3Score": 7.5}}}]}
+]}

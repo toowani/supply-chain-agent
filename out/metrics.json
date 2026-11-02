@@ -1,0 +1,1027 @@
+{
+ "warning_reduction": {
+  "by_finding": 0.2816,
+  "not_affected": 49,
+  "feedback_rows": 4,
+  "demo_feedback_rows": 4,
+  "judged": 174,
+  "scanner_findings": 174,
+  "by_unique_vuln": 0.2867,
+  "unique_vulns_not_affected": 43,
+  "unique_vulns_judged": 150,
+  "note": "not_affected / 판정 행 수. 고유 취약점 기준은 모든 서비스에서 not_affected인 ID만 제외로 계산. 시연용 데모 결정(demo-reviewer, 실제 검토 아님)으로 처리된 4행 포함 — 에이전트 단독 값은 extra.agent_only_reduction."
+ },
+ "condition_accuracy": {
+  "accuracy": 0.45,
+  "accuracy_reviewed_only": null,
+  "matched": 20,
+  "note": null
+ },
+ "top3_risk_coverage": {
+  "coverage": 0.712,
+  "covered_risk": 18.1419,
+  "total_risk": 25.4807,
+  "plan_coverage": 0.712,
+  "plan_k": 3,
+  "actions": [
+   "upgrade pypi:pillow→13.0.0",
+   "upgrade pypi:aiohttp→3.14.4",
+   "upgrade pypi:urllib3→2.8.0"
+  ]
+ },
+ "human_review_ratio": {
+  "ratio": 0.6724,
+  "uncertain": 117,
+  "judged": 174
+ },
+ "verdict_counts": {
+  "affected": 8,
+  "not_affected": 49,
+  "uncertain": 117
+ },
+ "agent_seconds_per_item": {
+  "mean": 10.656,
+  "median": 10.602,
+  "n": 174,
+  "cached_like": 174,
+  "judgment_cache_hits": 174,
+  "llm_cached": 170,
+  "under_threshold": 4,
+  "note": "174/174건 캐시 사용(판정 캐시 174, LLM 조건 캐시 170) — 콜드 실행 시간은 캐시 삭제 후 재측정 · 4건은 0.05s 미만(LLM 호출 없는 규칙 판정 포함)"
+ },
+ "human_minutes_per_item": {
+  "mean": null,
+  "median": null,
+  "n": 0,
+  "note": "미측정"
+ },
+ "speedup": null,
+ "eval": {
+  "available": true,
+  "n": 20,
+  "matched": 20,
+  "correct": 9,
+  "accuracy": 0.45,
+  "n_reviewed": 0,
+  "accuracy_reviewed_only": null,
+  "confusion": {
+   "rows_label_cols_verdict": [
+    "affected",
+    "not_affected",
+    "uncertain"
+   ],
+   "matrix": {
+    "affected": {
+     "affected": 1,
+     "not_affected": 0,
+     "uncertain": 1
+    },
+    "not_affected": {
+     "affected": 0,
+     "not_affected": 7,
+     "uncertain": 10
+    },
+    "uncertain": {
+     "affected": 0,
+     "not_affected": 0,
+     "uncertain": 1
+    }
+   }
+  },
+  "per_class": {
+   "affected": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "support": 2,
+    "predicted": 1
+   },
+   "not_affected": {
+    "precision": 1.0,
+    "recall": 0.4118,
+    "support": 17,
+    "predicted": 7
+   },
+   "uncertain": {
+    "precision": 0.0833,
+    "recall": 1.0,
+    "support": 1,
+    "predicted": 12
+   }
+  },
+  "mismatches": [
+   {
+    "service": "podcast4life",
+    "package": "pypi:lightning@2.6.0",
+    "vuln_id": "CVE-2026-58659",
+    "label": "affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:urllib3@1.26.20",
+    "vuln_id": "CVE-2026-21441",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:setuptools@58.0.4",
+    "vuln_id": "CVE-2024-6345",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "transitive_needs_callgraph",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-112900",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "input_trust_needs_human",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:aiohttp@3.13.5",
+    "vuln_id": "CVE-2026-54277",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "transitive_needs_callgraph",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:anyio@4.12.1",
+    "vuln_id": "CVE-2026-63374",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "toowani-auth",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-19534",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pip@26.0.1",
+    "vuln_id": "CVE-2026-13346",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "transitive_needs_callgraph",
+    "decided_by": "code"
+   },
+   {
+    "service": "toowani-auth",
+    "package": "npm:sharp@0.35.2",
+    "vuln_id": "CVE-2026-114112",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:torch@2.8.0",
+    "vuln_id": "CVE-2025-3000",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:urllib3@1.26.20",
+    "vuln_id": "CVE-2026-44431",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   }
+  ],
+  "missing": [],
+  "duplicates": []
+ },
+ "eval_extended": {
+  "available": true,
+  "n": 36,
+  "matched": 36,
+  "correct": 8,
+  "accuracy": 0.2222,
+  "n_reviewed": 0,
+  "accuracy_reviewed_only": null,
+  "confusion": {
+   "rows_label_cols_verdict": [
+    "affected",
+    "not_affected",
+    "uncertain"
+   ],
+   "matrix": {
+    "affected": {
+     "affected": 0,
+     "not_affected": 0,
+     "uncertain": 0
+    },
+    "not_affected": {
+     "affected": 2,
+     "not_affected": 8,
+     "uncertain": 26
+    },
+    "uncertain": {
+     "affected": 0,
+     "not_affected": 0,
+     "uncertain": 0
+    }
+   }
+  },
+  "per_class": {
+   "affected": {
+    "precision": 0.0,
+    "recall": null,
+    "support": 0,
+    "predicted": 2
+   },
+   "not_affected": {
+    "precision": 1.0,
+    "recall": 0.2222,
+    "support": 36,
+    "predicted": 8
+   },
+   "uncertain": {
+    "precision": 0.0,
+    "recall": null,
+    "support": 0,
+    "predicted": 26
+   }
+  },
+  "mismatches": [
+   {
+    "service": "podcast4life",
+    "package": "pypi:pyasn1@0.6.4",
+    "vuln_id": "CVE-2026-119195",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pytorch-lightning@2.6.0",
+    "vuln_id": "CVE-2026-31221",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:multidict@6.7.1",
+    "vuln_id": "CVE-2026-104874",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:brace-expansion@2.1.4",
+    "vuln_id": "CVE-2026-102278",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:brace-expansion@5.0.9",
+    "vuln_id": "CVE-2026-102278",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-19534",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:glob@10.5.0",
+    "vuln_id": "CVE-2026-118773",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:glob@13.0.6",
+    "vuln_id": "CVE-2026-118773",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:minimatch@10.2.6",
+    "vuln_id": "CVE-2026-118764",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "class-toowani",
+    "package": "npm:minimatch@9.0.9",
+    "vuln_id": "CVE-2026-118764",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "npm:sharp@0.35.4",
+    "vuln_id": "CVE-2026-114111",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-42308",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "condition_not_checkable",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:aiohttp@3.13.5",
+    "vuln_id": "CVE-2026-111066",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:aiohttp@3.13.5",
+    "vuln_id": "CVE-2026-111749",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "transitive_needs_callgraph",
+    "decided_by": "code"
+   },
+   {
+    "service": "toowani-auth",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-87029",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "toowani-auth",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-85008",
+    "label": "not_affected",
+    "verdict": "affected",
+    "rule": "unconditional_version_match",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-87029",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-85008",
+    "label": "not_affected",
+    "verdict": "affected",
+    "rule": "unconditional_version_match",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:urllib3@1.26.20",
+    "vuln_id": "CVE-2025-50181",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "transitive_needs_callgraph",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:urllib3@1.26.20",
+    "vuln_id": "CVE-2026-97687",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-112893",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "input_trust_needs_human",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-59199",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "input_trust_needs_human",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-42309",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "input_trust_needs_human",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-112402",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:pillow@11.3.0",
+    "vuln_id": "CVE-2026-112898",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:urllib3@1.26.20",
+    "vuln_id": "CVE-2025-66471",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   },
+   {
+    "service": "podcast4life",
+    "package": "pypi:torch@2.8.0",
+    "vuln_id": "CVE-2025-2999",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "condition_not_checkable",
+    "decided_by": "code"
+   },
+   {
+    "service": "toowani-auth",
+    "package": "npm:undici@7.29.0",
+    "vuln_id": "CVE-2026-109383",
+    "label": "not_affected",
+    "verdict": "uncertain",
+    "rule": "reachable_via_dependency",
+    "decided_by": "code"
+   }
+  ],
+  "missing": [],
+  "duplicates": []
+ },
+ "extra": {
+  "core_n": 20,
+  "core_correct": 9,
+  "core_reviewed": 0,
+  "core_decided": 8,
+  "core_decided_correct": 8,
+  "core_decided_precision": 1.0,
+  "core_abstain": 12,
+  "core_baseline": 0.85,
+  "core_affected_recall": 0.5,
+  "ext_n": 36,
+  "ext_accuracy": 0.2222222222222222,
+  "feedback_rows": 4,
+  "agent_only_not_affected": 45,
+  "agent_only_reduction": 0.25862068965517243
+ },
+ "judge_mode": "proactive",
+ "mode_comparison": {
+  "proactive": {
+   "reduction_agent_only": 0.2586,
+   "human_review": 0.6724,
+   "core_accuracy": 0.45,
+   "core_decided_precision": 1.0,
+   "core_decided": 8,
+   "core_false_not_affected": 0,
+   "ext_accuracy": 0.2222222222222222
+  },
+  "conservative": {
+   "reduction_agent_only": 0.1207,
+   "human_review": 0.8103,
+   "core_accuracy": 0.25,
+   "core_decided_precision": 1.0,
+   "core_decided": 4,
+   "core_false_not_affected": 0,
+   "ext_accuracy": 0.1111111111111111
+  }
+ },
+ "rescan": {
+  "prev_snapshot": "2026-11-01T025111Z",
+  "resolved": [],
+  "new": [],
+  "persisting": [
+   "class-toowani|npm:brace-expansion@2.1.4|CVE-2026-102276",
+   "class-toowani|npm:brace-expansion@2.1.4|CVE-2026-102277",
+   "class-toowani|npm:brace-expansion@2.1.4|CVE-2026-102278",
+   "class-toowani|npm:brace-expansion@5.0.9|CVE-2026-102276",
+   "class-toowani|npm:brace-expansion@5.0.9|CVE-2026-102277",
+   "class-toowani|npm:brace-expansion@5.0.9|CVE-2026-102278",
+   "class-toowani|npm:deepmerge@4.3.1|CVE-2026-93753",
+   "class-toowani|npm:glob@10.5.0|CVE-2026-118773",
+   "class-toowani|npm:glob@13.0.6|CVE-2026-118773",
+   "class-toowani|npm:minimatch@10.2.6|CVE-2026-118764",
+   "class-toowani|npm:minimatch@9.0.9|CVE-2026-118764",
+   "podcast4life|npm:sharp@0.35.4|CVE-2026-114111",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109383",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109829",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109841",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109869",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109924",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-109932",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-18149",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-18540",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-19534",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-84890",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-84933",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-84947",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-84961",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-85008",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-85014",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-85024",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-87018",
+   "podcast4life|npm:undici@7.29.0|CVE-2026-87029",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111063",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111064",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111065",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111066",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111748",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111749",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-111750",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-34993",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-47265",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-50269",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54273",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54274",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54275",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54276",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54277",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54278",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54279",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-54280",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-59881",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-69243",
+   "podcast4life|pypi:aiohttp@3.13.5|CVE-2026-69244",
+   "podcast4life|pypi:aiohttp@3.13.5|GHSA-2g87-pp6c-29x5",
+   "podcast4life|pypi:anyio@4.12.1|CVE-2026-63374",
+   "podcast4life|pypi:anyio@4.12.1|CVE-2026-64847",
+   "podcast4life|pypi:certifi@2026.7.22|GHSA-6q48-6c7w-9gw2",
+   "podcast4life|pypi:filelock@3.19.1|CVE-2025-68146",
+   "podcast4life|pypi:filelock@3.19.1|CVE-2026-112909",
+   "podcast4life|pypi:filelock@3.19.1|CVE-2026-112910",
+   "podcast4life|pypi:filelock@3.19.1|CVE-2026-22701",
+   "podcast4life|pypi:fsspec@2025.10.0|CVE-2026-104851",
+   "podcast4life|pypi:lightning@2.6.0|CVE-2026-58659",
+   "podcast4life|pypi:mako@1.3.12|CVE-2026-102991",
+   "podcast4life|pypi:multidict@6.7.1|CVE-2026-104874",
+   "podcast4life|pypi:oauthlib@3.3.1|CVE-2026-118669",
+   "podcast4life|pypi:oauthlib@3.3.1|CVE-2026-49264",
+   "podcast4life|pypi:oauthlib@3.3.1|CVE-2026-49265",
+   "podcast4life|pypi:oauthlib@3.3.1|CVE-2026-49272",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112390",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112391",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112392",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112393",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112394",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112395",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112396",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112397",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112398",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112399",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112400",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112401",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112402",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112403",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112404",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112406",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112891",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112892",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112893",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112894",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112895",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112896",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112897",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112898",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112899",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112900",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112901",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-112902",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-114501",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-25990",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-40192",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-42308",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-42309",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-42310",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-42311",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-54058",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-54059",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-54060",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-55379",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-55380",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-55798",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59197",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59198",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59199",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59200",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59204",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-59205",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96636",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96637",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96638",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96639",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96640",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96641",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96642",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96643",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96644",
+   "podcast4life|pypi:pillow@11.3.0|CVE-2026-96778",
+   "podcast4life|pypi:pillow@11.3.0|GHSA-78g4-xqwv-q3g8",
+   "podcast4life|pypi:pip@26.0.1|CVE-2026-13346",
+   "podcast4life|pypi:pip@26.0.1|CVE-2026-3219",
+   "podcast4life|pypi:pip@26.0.1|CVE-2026-6357",
+   "podcast4life|pypi:pip@26.0.1|CVE-2026-8643",
+   "podcast4life|pypi:pyasn1@0.6.4|CVE-2026-119194",
+   "podcast4life|pypi:pyasn1@0.6.4|CVE-2026-119195",
+   "podcast4life|pypi:pyasn1@0.6.4|CVE-2026-119196",
+   "podcast4life|pypi:pyasn1@0.6.4|CVE-2026-119197",
+   "podcast4life|pypi:python-dotenv@1.2.1|CVE-2026-28684",
+   "podcast4life|pypi:pytorch-lightning@2.6.0|CVE-2026-31221",
+   "podcast4life|pypi:rembg@2.0.61|CVE-2026-115924",
+   "podcast4life|pypi:rembg@2.0.61|CVE-2026-40086",
+   "podcast4life|pypi:rembg@2.0.61|GHSA-55v6-g8pm-pw4c",
+   "podcast4life|pypi:requests@2.32.5|CVE-2026-25645",
+   "podcast4life|pypi:setuptools@58.0.4|CVE-2022-40897",
+   "podcast4life|pypi:setuptools@58.0.4|CVE-2024-6345",
+   "podcast4life|pypi:setuptools@58.0.4|CVE-2025-47273",
+   "podcast4life|pypi:setuptools@58.0.4|CVE-2026-59890",
+   "podcast4life|pypi:setuptools@58.0.4|GHSA-xmj3-9gf7-h52w",
+   "podcast4life|pypi:torch@2.8.0|CVE-2025-2999",
+   "podcast4life|pypi:torch@2.8.0|CVE-2025-3000",
+   "podcast4life|pypi:torch@2.8.0|CVE-2025-3001",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2025-50181",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2025-66418",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2025-66471",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2026-21441",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2026-44431",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2026-97687",
+   "podcast4life|pypi:urllib3@1.26.20|CVE-2026-97689",
+   "toowani-auth|npm:sharp@0.35.2|CVE-2026-114111",
+   "toowani-auth|npm:sharp@0.35.2|CVE-2026-114112",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109383",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109829",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109841",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109869",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109924",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-109932",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-18149",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-18540",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-19534",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-84890",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-84933",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-84947",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-84961",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-85008",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-85014",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-85024",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-87018",
+   "toowani-auth|npm:undici@7.29.0|CVE-2026-87029"
+  ],
+  "fixed_decisions": [],
+  "fixed_verified": 0,
+  "fixed_not_verified": 0,
+  "before": {
+   "rows": 174,
+   "score": 35.712,
+   "affected": 8
+  },
+  "after": {
+   "rows": 174,
+   "score": 35.712,
+   "affected": 8
+  }
+ },
+ "judge_stage_seconds": 55.4,
+ "llm": "gpt-oss:20b@local",
+ "rule_counts": {
+  "verdict": {
+   "uncertain": 117,
+   "not_affected": 49,
+   "affected": 8
+  },
+  "rule": {
+   "reachable_via_dependency": 63,
+   "transitive_needs_callgraph": 24,
+   "api_not_referenced": 40,
+   "input_trust_needs_human": 25,
+   "condition_not_checkable": 5,
+   "condition_symbol_in_code": 4,
+   "unconditional_version_match": 4,
+   "platform_excluded": 5,
+   "feedback_suppressed": 4
+  }
+ },
+ "plan_followups": {
+  "alternatives": [
+   {
+    "package": "pillow",
+    "ecosystem": "pypi",
+    "from_versions": [
+     "11.3.0"
+    ],
+    "plan_target": "13.0.0",
+    "target": null,
+    "best_compatible": null,
+    "reason": "11.x 계열 마지막 릴리스가 현재 11.3.0 — 수정 버전은 12.1.1(Python >=3.10)부터(메이저 변경)"
+   },
+   {
+    "package": "aiohttp",
+    "ecosystem": "pypi",
+    "from_versions": [
+     "3.13.5"
+    ],
+    "plan_target": "3.14.4",
+    "target": null,
+    "best_compatible": null,
+    "reason": "3.x 계열 새 릴리스(~3.14.5)는 Python >=3.10 필요, 서비스는 3.9.6 — 수정 버전 3.14.0(Python >=3.10)도 런타임 업그레이드 필요"
+   },
+   {
+    "package": "urllib3",
+    "ecosystem": "pypi",
+    "from_versions": [
+     "1.26.20"
+    ],
+    "plan_target": "2.8.0",
+    "target": null,
+    "best_compatible": null,
+    "reason": "1.x 계열 마지막 릴리스가 현재 1.26.20 — 수정 버전은 2.5.0(Python >=3.9)부터(메이저 변경)"
+   }
+  ],
+  "shared": {
+   "top3": [
+    {
+     "package": "pillow",
+     "shared": false,
+     "services": [
+      "podcast4life"
+     ],
+     "installed_in": [
+      "podcast4life"
+     ],
+     "reason": "pillow는 podcast4life에만 설치됨"
+    },
+    {
+     "package": "aiohttp",
+     "shared": false,
+     "services": [
+      "podcast4life"
+     ],
+     "installed_in": [
+      "podcast4life"
+     ],
+     "reason": "aiohttp는 podcast4life에만 설치됨"
+    },
+    {
+     "package": "urllib3",
+     "shared": false,
+     "services": [
+      "podcast4life"
+     ],
+     "installed_in": [
+      "lms-watch",
+      "podcast4life",
+      "wani-briefing-routine"
+     ],
+     "reason": "urllib3는 다른 서비스에도 설치됐지만 lms-watch(2.8.0), wani-briefing-routine(2.8.0)는 스캔 경고 없음"
+    }
+   ],
+   "best_shared": [
+    {
+     "rank": 4,
+     "kind": "upgrade",
+     "package": "undici",
+     "ecosystem": "npm",
+     "target_version": "7.30.1",
+     "services": [
+      "podcast4life",
+      "toowani-auth"
+     ],
+     "findings": 24,
+     "services_cleared": [
+      "podcast4life",
+      "toowani-auth"
+     ],
+     "risk_covered": 1.8108,
+     "risk_total": 1.8108,
+     "risk_share": 0.0711,
+     "major_bump": false
+    },
+    {
+     "rank": 13,
+     "kind": "upgrade",
+     "package": "sharp",
+     "ecosystem": "npm",
+     "target_version": "0.35.5",
+     "services": [
+      "podcast4life",
+      "toowani-auth"
+     ],
+     "findings": 3,
+     "services_cleared": [
+      "podcast4life",
+      "toowani-auth"
+     ],
+     "risk_covered": 0.2048,
+     "risk_total": 0.2048,
+     "risk_share": 0.008,
+     "major_bump": false
+    }
+   ],
+   "shared_count": 2,
+   "candidate_count": 18
+  }
+ },
+ "insights": {
+  "hold": {
+   "total": 174,
+   "uncertain": 117,
+   "review_rate": 0.6724,
+   "categories": [
+    {
+     "category": "콜그래프로 해소 가능",
+     "count": 87,
+     "share": 0.5,
+     "rules": {
+      "reachable_via_dependency": 63,
+      "transitive_needs_callgraph": 24
+     }
+    },
+    {
+     "category": "입력 신뢰 판단 필요(사람)",
+     "count": 25,
+     "share": 0.1437,
+     "rules": {
+      "input_trust_needs_human": 25
+     }
+    },
+    {
+     "category": "검사 불가 조건(사람)",
+     "count": 5,
+     "share": 0.0287,
+     "rules": {
+      "condition_not_checkable": 5
+     }
+    }
+   ],
+   "estimate": {
+    "label": "추정",
+    "assumptions": [
+     "콜그래프는 '콜그래프로 해소 가능' 범주만 판정 가능하게 만들고, 사람 범주(입력 신뢰·검사 불가)는 그대로 남는다",
+     "상한: 해당 범주 전부가 affected/not_affected로 결정된다고 가정",
+     "근거 추정: 정답셋(core+extended) 중 에이전트가 같은 범주로 보류한 건의 정답 라벨이 결정 가능(affected/not_affected)한 비율을 전체 해당 범주에 그대로 적용"
+    ],
+    "upper_bound": {
+     "review_rate": 0.1724,
+     "uncertain_after": 30,
+     "formula": "(117 - 87) / 174 = 17.2%"
+    },
+    "grounded": {
+     "gt_items": 32,
+     "gt_decidable": 31,
+     "decidable_share": 0.9688,
+     "resolved": 84.3,
+     "uncertain_after": 32.7,
+     "review_rate": 0.188,
+     "formula": "(117 - 87 × 31/32) / 174 = 18.8%"
+    }
+   }
+  },
+  "automation": {
+   "total": 174,
+   "auto_decided": 53,
+   "auto_rate": 0.3046,
+   "auto_decided_with_feedback": 57,
+   "auto_rate_with_feedback": 0.3276,
+   "uncertain": 117,
+   "hold_rate": 0.6724,
+   "misjudged": {
+    "wrong": 0,
+    "decided": 8,
+    "text": "0/8",
+    "wrong_keys": []
+   },
+   "misjudged_with_feedback": {
+    "wrong": 0,
+    "decided": 8,
+    "text": "0/8",
+    "wrong_keys": []
+   },
+   "test_n": 20,
+   "baseline": {
+    "label": "not_affected",
+    "accuracy": 0.85,
+    "correct": 17,
+    "n": 20,
+    "text": "전부 not_affected로 찍는 기준선 정확도 17/20 = 85% (대신 affected를 하나도 못 잡음)"
+   }
+  },
+  "showcase": {
+   "service": "podcast4life",
+   "package": "pypi:rembg@2.0.61",
+   "vuln_id": "CVE-2026-115924",
+   "advisory_id": "GHSA-qr6x-7v33-6qmg",
+   "cvss": 8.6,
+   "rule": "api_not_referenced",
+   "advisory_quote": "The public `/api/remove` endpoint uses attacker-controlled `extras.sam_model` in both SAM filenames and GitHub download URLs.",
+   "quote_in_osv": true,
+   "condition": "[input] The attacker must supply a value for the `extras.sam_model` field in the request payload. (symbols: extras.sam_model)",
+   "missing_symbols": [
+    "extras.sam_model"
+   ],
+   "evidence_fileline": [
+    "pipeline/ahn_tag_headaware.py:56",
+    "pipeline/ahn_tag_headaware.py:84",
+    "pipeline/ahn_tag_headaware.py:91",
+    "pipeline/ahn_tag_headaware.py:147",
+    "pipeline/clearance_v7.py:10"
+   ],
+   "import_hits_total": 8,
+   "files_importing": null,
+   "searched": "rembg 직접 import 8곳",
+   "gt_label": "not_affected",
+   "gt_set": "core",
+   "explanation": "podcast4life 코드에 rembg@2.0.61 import가 8곳 있지만 권고문의 전제인 extras.sam_model 참조는 0건이어서 not_affected로 판정했다(CVSS 8.6)."
+  },
+  "shared": {
+   "findings": 174,
+   "unique_pairs": 156,
+   "shared_pairs": 18,
+   "shared_findings": 36,
+   "shared_services_max": 2,
+   "shared_consistent": 18,
+   "judgments_saved": 18,
+   "text": "판정 18회로 경고 36건 (여러 서비스 공유 패키지@버전×취약점)",
+   "feedback": {
+    "decisions_all_services": 2,
+    "rows_resolved": 4,
+    "rows_other_services": 2,
+    "services": [
+     "podcast4life",
+     "toowani-auth"
+    ],
+    "text": "그룹 공유 결정 2건 → 2개 서비스 4건 자동 해소(그중 다른 서비스 2건)"
+   }
+  }
+ }
+}

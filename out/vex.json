@@ -1,0 +1,1926 @@
+{
+ "@context": "https://openvex.dev/ns/v0.2.0",
+ "@id": "urn:uuid:eb047115-1d36-5b8b-80ce-f8671c43dc1d",
+ "author": "supply-chain-agent PoC",
+ "timestamp": "2026-11-01T03:00:50Z",
+ "version": 1,
+ "statements": [
+  {
+   "vulnerability": {
+    "name": "CVE-2022-40897"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/setuptools@58.0.4"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2024-6345"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/setuptools@58.0.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-2999"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/torch@2.8.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-3000"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/torch@2.8.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-3001"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/torch@2.8.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-47273"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/setuptools@58.0.4"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-50181"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-66418"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-66471"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2025-68146"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/filelock@3.19.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102276"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@2.1.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102276"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@5.0.9"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102277"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@2.1.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102277"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@5.0.9"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102278"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@2.1.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102278"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/brace-expansion@5.0.9"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-102991"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/mako@1.3.12"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "The advisory's platform/runtime precondition does not hold for the deployed environment."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-104851"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/fsspec@2025.10.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-104874"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/multidict@6.7.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109383"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109829"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109841"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109869"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "Component is used only by build/test tooling and never processes untrusted input.",
+   "status_notes": "Demonstration feedback record (PoC), not a real review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109924"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-109932"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111063"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111064"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111065"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111066"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111748"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111749"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-111750"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112390"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112391"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112392"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112393"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112394"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112395"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112396"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112397"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112398"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112399"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112400"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112401"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112402"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112403"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112404"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112406"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112891"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112892"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112893"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112894"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112895"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112896"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112897"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112898"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112899"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112900"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112901"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112902"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112909"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/filelock@3.19.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-112910"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/filelock@3.19.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "The advisory's platform/runtime precondition does not hold for the deployed environment."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-114111"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/sharp@0.35.2"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-114111"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/sharp@0.35.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-114112"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/sharp@0.35.2"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-114501"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-115924"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/rembg@2.0.61"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-118669"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/oauthlib@3.3.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-118764"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/minimatch@10.2.6"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-118764"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/minimatch@9.0.9"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-118773"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/glob@10.5.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-118773"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/glob@13.0.6"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-119194"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pyasn1@0.6.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-119195"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pyasn1@0.6.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-119196"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pyasn1@0.6.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-119197"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pyasn1@0.6.4"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-13346"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pip@26.0.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-18149"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-18540"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-19534"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-21441"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-22701"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/filelock@3.19.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-25645"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/requests@2.32.5"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-25990"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-28684"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/python-dotenv@1.2.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-31221"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pytorch-lightning@2.6.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-3219"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pip@26.0.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-34993"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-40086"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/rembg@2.0.61"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-40192"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-42308"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-42309"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-42310"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-42311"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-44431"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-47265"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-49264"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/oauthlib@3.3.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-49265"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/oauthlib@3.3.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-49272"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/oauthlib@3.3.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-50269"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54058"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54059"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54060"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54273"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54274"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54275"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54276"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54277"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54278"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54279"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-54280"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-55379"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-55380"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-55798"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "The advisory's platform/runtime precondition does not hold for the deployed environment."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-58659"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/lightning@2.6.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59197"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59198"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59199"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59200"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59204"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59205"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59881"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-59890"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/setuptools@58.0.4"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-63374"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/anyio@4.12.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-6357"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pip@26.0.1"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-64847"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/anyio@4.12.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-69243"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-69244"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-84890"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-84933"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "Component is used only by build/test tooling and never processes untrusted input.",
+   "status_notes": "Demonstration feedback record (PoC), not a real review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-84947"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-84961"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-85008"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-85014"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-85024"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-8643"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pip@26.0.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-87018"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-87029"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/undici@7.29.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-93753"
+   },
+   "products": [
+    {
+     "@id": "pkg:npm/deepmerge@4.3.1"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96636"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96637"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96638"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96639"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96640"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96641"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96642"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96643"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96644"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "The advisory's platform/runtime precondition does not hold for the deployed environment."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-96778"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-97687"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "CVE-2026-97689"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/urllib3@1.26.20"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "GHSA-2g87-pp6c-29x5"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/aiohttp@3.13.5"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "GHSA-55v6-g8pm-pw4c"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/rembg@2.0.61"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_not_in_execute_path",
+   "impact_statement": "The vulnerable API named in the advisory is not referenced by the product's code."
+  },
+  {
+   "vulnerability": {
+    "name": "GHSA-6q48-6c7w-9gw2"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/certifi@2026.7.22"
+    }
+   ],
+   "status": "affected",
+   "action_statement": "Upgrade to a fixed version."
+  },
+  {
+   "vulnerability": {
+    "name": "GHSA-78g4-xqwv-q3g8"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/pillow@11.3.0"
+    }
+   ],
+   "status": "under_investigation",
+   "status_notes": "Automated analysis inconclusive; queued for human review."
+  },
+  {
+   "vulnerability": {
+    "name": "GHSA-xmj3-9gf7-h52w"
+   },
+   "products": [
+    {
+     "@id": "pkg:pypi/setuptools@58.0.4"
+    }
+   ],
+   "status": "not_affected",
+   "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+   "impact_statement": "The advisory's platform/runtime precondition does not hold for the deployed environment."
+  }
+ ]
+}

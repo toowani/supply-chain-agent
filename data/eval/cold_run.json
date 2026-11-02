@@ -1,0 +1,14 @@
+{
+ "note": "LLM 조건·판정 캐시를 지운 별도 사본에서 sca run --skip-scan --offline 전체 재실행(적극 모드 + 보수 모드 비교 포함). 판정 일치는 캐시 사용 실행(out/judgments.json)과 같은 행끼리 verdict 비교.",
+ "run_at": "2026-10-31T19:26:44Z",
+ "llm": "gpt-oss:20b@local",
+ "findings": 174,
+ "agent_seconds_mean": 22.73,
+ "agent_seconds_median": 23.52,
+ "judge_stage_seconds": 2011.7,
+ "wall_seconds": 2091,
+ "verdict_same": 164,
+ "verdict_compared": 174,
+ "core_decided": 9,
+ "core_decided_correct": 9
+}

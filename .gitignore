@@ -1,0 +1,32 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# scanned repos, temp venvs (may contain private code)
+work/
+
+# raw scan output & caches (contain absolute local paths)
+out/raw/
+data/cache/
+
+.DS_Store
+
+# local-only config (real paths, private repo names)
+config/services.local.yaml
+out/resolved/lms-watch.txt
+
+# contain service source snippets (private repos) — local only; public summaries are committed
+out/judgments.json
+out/history/
+data/eval/ground_truth.yaml
+data/eval/review_core.xlsx
+data/cache/
+out/resolved/

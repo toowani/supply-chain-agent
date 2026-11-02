@@ -1,0 +1,37 @@
+# 서비스 자산 정보 (비즈니스 속성) — 초안, 사용자 확인 필요 (confirmed: true)
+# 이 파일은 LLM에 보내지 않는다. 점수 계산 코드에서만 결합한다.
+#
+# exposure    : internet | internal   (인터넷에서 요청을 받는 코드가 있는가)
+# criticality : 1(낮음) – 3(높음)       (장애·침해 시 업무 영향)
+# owner_team  : 가상의 계열사 조직명 (PoC용)
+
+assets:
+  toowani-auth:
+    exposure: internet      # Cloudflare Worker, 커스텀 도메인으로 SSO 제공
+    criticality: 3          # 다른 서비스 로그인이 모두 여기에 의존
+    owner_team: 인증플랫폼팀
+    confirmed: true
+
+  podcast4life:
+    exposure: internet      # p4l-comments Worker(댓글 API) 공개 + 유튜브 업로드 자동화
+    criticality: 2          # 대외 콘텐츠 채널, 매출 직결 아님
+    owner_team: 미디어서비스팀
+    confirmed: true
+
+  class-toowani:
+    exposure: internet      # 정적 사이트 + class-summarize Worker(AI 요약). npm은 jest(dev)뿐
+    criticality: 2
+    owner_team: 교육서비스팀
+    confirmed: true
+
+  lms-watch:
+    exposure: internal      # GitHub Actions 크론, 외부에서 요청 받지 않음
+    criticality: 1
+    owner_team: 인프라운영팀
+    confirmed: true
+
+  wani-briefing-routine:
+    exposure: internal      # 아침 배치, 슬랙 발송만
+    criticality: 1
+    owner_team: 데이터분석팀
+    confirmed: true

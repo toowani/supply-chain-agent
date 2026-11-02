@@ -1,0 +1,29 @@
+[project]
+name = "supply-chain-agent"
+version = "0.1.0"
+description = "SW supply-chain scanning agent PoC (LOTTE AX Challenge 2026)"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+    "networkx>=3.3",
+    "pyyaml>=6.0",
+    "requests>=2.32",
+    "packaging>=24.0",
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+    "matplotlib>=3.8",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["sca*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

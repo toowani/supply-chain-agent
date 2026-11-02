@@ -1,0 +1,276 @@
+{
+ "services": 5,
+ "teams": 5,
+ "package_versions": 628,
+ "package_names": 563,
+ "vulnerabilities": 150,
+ "edges": 1957,
+ "shared_packages_total": 99,
+ "shared_top10": [
+  {
+   "ecosystem": "npm",
+   "package": "@emnapi/runtime",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "1.10.0",
+    "1.11.3"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "@jridgewell/resolve-uri",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "3.1.2"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "@jridgewell/sourcemap-codec",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "1.6.0"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "@jridgewell/trace-mapping",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "0.3.31",
+    "0.3.9"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "detect-libc",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "2.1.2"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "semver",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "6.3.1",
+    "7.8.5"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "supports-color",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "10.2.2",
+    "7.2.0",
+    "8.1.1"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "tslib",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "2.8.1"
+   ]
+  },
+  {
+   "ecosystem": "npm",
+   "package": "ws",
+   "services": 3,
+   "service_names": [
+    "class-toowani",
+    "podcast4life",
+    "toowani-auth"
+   ],
+   "versions": [
+    "8.21.0",
+    "8.21.3"
+   ]
+  },
+  {
+   "ecosystem": "pypi",
+   "package": "certifi",
+   "services": 3,
+   "service_names": [
+    "lms-watch",
+    "podcast4life",
+    "wani-briefing-routine"
+   ],
+   "versions": [
+    "2026.10.23",
+    "2026.7.22"
+   ]
+  }
+ ],
+ "per_service": [
+  {
+   "service": "podcast4life",
+   "packages": 235,
+   "direct": 12,
+   "transitive": 202,
+   "unreferenced": 21,
+   "dev_only": 91,
+   "findings": 143,
+   "vulnerable_packages": 21,
+   "vulnerable_direct": 3,
+   "vulnerable_transitive": 15,
+   "vulnerable_unreferenced": 3
+  },
+  {
+   "service": "wani-briefing-routine",
+   "packages": 12,
+   "direct": 5,
+   "transitive": 7,
+   "unreferenced": 0,
+   "dev_only": 0,
+   "findings": 0,
+   "vulnerable_packages": 0,
+   "vulnerable_direct": 0,
+   "vulnerable_transitive": 0,
+   "vulnerable_unreferenced": 0
+  },
+  {
+   "service": "lms-watch",
+   "packages": 8,
+   "direct": 2,
+   "transitive": 6,
+   "unreferenced": 0,
+   "dev_only": 0,
+   "findings": 0,
+   "vulnerable_packages": 0,
+   "vulnerable_direct": 0,
+   "vulnerable_transitive": 0,
+   "vulnerable_unreferenced": 0
+  },
+  {
+   "service": "class-toowani",
+   "packages": 350,
+   "direct": 2,
+   "transitive": 348,
+   "unreferenced": 0,
+   "dev_only": 350,
+   "findings": 11,
+   "vulnerable_packages": 7,
+   "vulnerable_direct": 0,
+   "vulnerable_transitive": 7,
+   "vulnerable_unreferenced": 0
+  },
+  {
+   "service": "toowani-auth",
+   "packages": 93,
+   "direct": 3,
+   "transitive": 90,
+   "unreferenced": 0,
+   "dev_only": 93,
+   "findings": 20,
+   "vulnerable_packages": 2,
+   "vulnerable_direct": 0,
+   "vulnerable_transitive": 2,
+   "vulnerable_unreferenced": 0
+  }
+ ],
+ "comparison": {
+  "k": 10,
+  "overlap": 5,
+  "severity": {
+   "kev": 0,
+   "internet": 10,
+   "fixable": 10,
+   "services": 2,
+   "with_epss": 10,
+   "prior": 0,
+   "mean_epss": 0.006,
+   "max_epss": 0.013
+  },
+  "score": {
+   "kev": 0,
+   "internet": 10,
+   "fixable": 10,
+   "services": 1,
+   "with_epss": 10,
+   "prior": 0,
+   "mean_epss": 0.0144,
+   "max_epss": 0.0292
+  }
+ },
+ "provenance": {
+  "run_at": "2026-11-01T03:00:50Z",
+  "llm": "gpt-oss:20b@local",
+  "tools": {
+   "syft": "1.55.0",
+   "grype": "0.121.0",
+   "uv": "0.12.15"
+  },
+  "grype_db_built": "2026-10-31T06:18:17Z",
+  "kev": {
+   "fetched_at": "2026-10-31T14:43:51Z",
+   "catalogVersion": "2026.10.30",
+   "count": 1766
+  },
+  "epss": {
+   "fetched_at": "2026-10-31T14:47:05Z"
+  },
+  "cves": 145,
+  "cves_with_epss": 141,
+  "osv_records": 150,
+  "osv_queried": 150,
+  "cve_aliases_from_osv": 3,
+  "epss_prior": 0.00405,
+  "seconds_total": 95.6,
+  "seconds_scan": 0.3,
+  "notes": {
+   "podcast4life": [
+    "SBOM entries not in lock (project root etc.) skipped: ['npm:p4l-comments-worker@0.1.0']"
+   ],
+   "class-toowani": [
+    "SBOM entries not in lock (project root etc.) skipped: ['npm:class-toowani@UNKNOWN']"
+   ],
+   "toowani-auth": [
+    "SBOM entries not in lock (project root etc.) skipped: ['npm:toowani-auth@0.1.0']"
+   ]
+  }
+ }
+}
