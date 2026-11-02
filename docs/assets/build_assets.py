@@ -1,12 +1,15 @@
-"""Render README figures: static PNGs and GIFs from HTML frames (headless Chrome + ffmpeg).
+"""Render README figures as PNGs from HTML (headless Chrome).
 
 Usage: .venv/bin/python docs/assets/build_assets.py
-Numbers come from out/metrics.json and the committed showcase case; the demo GIF replays
-the stage lines of a real `sca run --skip-scan --offline` (2026-11-02, 140 s) with time compressed.
+Numbers come from out/metrics.json, out/ranked.csv and the committed showcase case. The dependency
+map also needs each service's inventory (out/raw, local only); its extract is cached in
+docs/assets/deps_map.json so a fresh clone can still re-render. The terminal image shows the stage
+lines of a real `sca run --skip-scan --offline` (2026-11-02, 140 s).
 """
+import csv
 import json
-import shutil
 import subprocess
+from collections import Counter, defaultdict
 import tempfile
 from pathlib import Path
 
@@ -39,20 +42,132 @@ def shot(html: str, out: Path, w: int, h: int, scale: int = 2, transparent: bool
         subprocess.run(args, check=True, capture_output=True)
 
 
-def gif(frames: list[tuple[str, float]], out: Path, w: int, h: int):
-    """frames: (html, seconds). Rendered at 1x on an opaque background, palette-optimised."""
-    with tempfile.TemporaryDirectory() as td:
-        td = Path(td)
-        lst = []
-        for i, (html, sec) in enumerate(frames):
-            png = td / f"{i:03d}.png"
-            shot(html, png, w, h, scale=1, transparent=False)
-            lst.append(f"file '{png}'\nduration {sec}")
-        lst.append(f"file '{td / f'{len(frames) - 1:03d}.png'}'")
-        (td / "list.txt").write_text("\n".join(lst))
-        vf = "split[a][b];[a]palettegen=max_colors=128:stats_mode=full[p];[b][p]paletteuse=dither=none"
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", td / "list.txt",
-                        "-vf", vf, "-loop", "0", out], check=True)
+# ── static: whole-portfolio dependency map ───────────────────────────────────────
+SERVICE_ORDER = ["podcast4life", "class-toowani", "toowani-auth", "wani-briefing-routine", "lms-watch"]
+UNREF = "(미참조·도구)"
+
+
+def _deps_extract() -> dict:
+    """Per service: direct deps with transitive subtree size, unreferenced count. Needs out/raw (local)."""
+    import sys
+    sys.path.insert(0, str(REPO))
+    from sca.config import load_assets, load_services
+    from sca.ingest.inventory import build_inventory, dependency_class
+    assets = load_assets()
+    out = {}
+    for s in load_services():
+        inv = build_inventory(s)
+        dc = dependency_class(inv)
+        kids = defaultdict(set)
+        for e in inv.edges:
+            kids[e.parent].add(e.child)
+
+        def desc(k):
+            seen, st = set(), [k]
+            while st:
+                for c in kids[st.pop()]:
+                    if c not in seen:
+                        seen.add(c)
+                        st.append(c)
+            return seen
+        a = assets.get(s.name)
+        out[s.name] = {"team": a.owner_team if a else "", "exposure": a.exposure if a else "",
+                       "packages": len(inv.packages), "counts": dict(Counter(dc.values())),
+                       "direct": sorted(([k, len(desc(k))] for k, v in dc.items() if v == "direct"), key=lambda x: -x[1])}
+    return out
+
+
+def deps_map():
+    cache = HERE / "deps_map.json"
+    try:
+        data = _deps_extract()
+        cache.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    except (FileNotFoundError, SystemExit):
+        data = json.loads(cache.read_text(encoding="utf-8"))
+    vul = defaultdict(Counter)
+    hop, depth = {}, {}
+    for r in csv.DictReader((REPO / "out/ranked.csv").open(encoding="utf-8")):
+        key = (r["service"], f"{r['ecosystem']}:{r['package']}@{r['version']}")
+        vul[key][r["verdict"]] += 1
+        parts = r["path"].split(" > ")
+        hop[key] = parts[1] if r["dependency"] in ("direct", "transitive") else UNREF
+        depth[key] = len(parts) - 1
+    svcs_by_name = defaultdict(set)
+    for s, k in vul:
+        svcs_by_name[k.rsplit("@", 1)[0]].add(s)
+
+    ROW, X_B, W_B, X_C, W_C, TOP = 30, 250, 300, 690, 400, 104
+    rows_b, rows_c, svc_boxes, edges = [], [], [], []
+    y = TOP
+    for svc in SERVICE_ORDER:
+        d = data[svc]
+        b_keys = [k for k, _ in d["direct"]] + ([UNREF] if any(hop[k] == UNREF for k in vul if k[0] == svc) else [])
+        c_keys = sorted((k for k in vul if k[0] == svc),
+                        key=lambda k: (b_keys.index(hop[k]) if hop[k] in b_keys else 99, -sum(vul[k].values())))
+        n = max(len(b_keys), len(c_keys), 3)
+        y_b0 = y + (n - len(b_keys)) * ROW / 2
+        y_c0 = y + (n - len(c_keys)) * ROW / 2
+        pos_b = {}
+        for i, k in enumerate(b_keys):
+            sub = dict(d["direct"]).get(k)
+            pos_b[k] = y_b0 + i * ROW
+            rows_b.append((pos_b[k], k, sub, k == UNREF))
+        for i, k in enumerate(c_keys):
+            yc = y_c0 + i * ROW
+            rows_c.append((yc, k[1], vul[k], depth[k], len(svcs_by_name[k[1].rsplit("@", 1)[0]]) > 1))
+            if hop[k] in pos_b:
+                edges.append((pos_b[hop[k]], yc, sum(vul[k].values())))
+        c = d["counts"]
+        svc_boxes.append((y, n * ROW - 6, svc, d, c))
+        y += n * ROW + 18
+    H = y + 70
+
+    def short(k):
+        return k.split(":", 1)[1] if ":" in k else k
+    parts = []
+    for y0, h, svc, d, c in svc_boxes:
+        crit = "인터넷 노출" if d["exposure"] == "internet" else "내부"
+        unref = f" · 미참조 {c['unreferenced']}" if c.get("unreferenced") else ""
+        parts.append(f"<div class='card io' style='position:absolute;left:28px;top:{y0}px;width:190px;height:{h}px;"
+                     f"padding:10px 12px;border-radius:12px;display:flex;flex-direction:column;justify-content:center'>"
+                     f"<div style='font-weight:800;font-size:15px'>{svc}</div><div style='font-size:12px;color:#57606a'>"
+                     f"{d['team']} · {crit}</div><div style='font-size:12px;color:#57606a;margin-top:4px'>패키지 {d['packages']} · "
+                     f"직접 {c.get('direct', 0)} · 전이 {c.get('transitive', 0)}{unref}</div></div>")
+    for yb, k, sub, un in rows_b:
+        cls = "io" if un else "code"
+        badge = "" if un or sub is None else f"<span style='margin-left:auto;padding-left:8px;font-size:11px;color:#57606a;white-space:nowrap'>+전이 {sub}</span>"
+        parts.append(f"<div class='card {cls}' style='position:absolute;left:{X_B}px;top:{yb}px;width:{W_B}px;height:{ROW - 6}px;"
+                     f"padding:0 10px;border-radius:7px;display:flex;align-items:center;font-size:12.5px'>"
+                     f"<span class=mono style='font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0'>{short(k) if not un else k}</span>{badge}</div>")
+    colors = {"affected": "#e53935", "not_affected": "#1e88e5", "uncertain": "#fb8c00"}
+    for yc, k, vc, dep, sh in rows_c:
+        tot = sum(vc.values())
+        bar = "".join(f"<span style='display:inline-block;height:10px;width:{vc[v] / tot * 60:.1f}px;background:{colors[v]}'></span>"
+                      for v in ("affected", "not_affected", "uncertain") if vc[v])
+        tag = "<span style='font-size:10.5px;color:#8e24aa;border:1px solid #8e24aa;border-radius:4px;padding:0 3px;margin-left:6px'>공유</span>" if sh else ""
+        parts.append(f"<div class='card' style='position:absolute;left:{X_C}px;top:{yc}px;width:{W_C}px;height:{ROW - 6}px;"
+                     f"padding:0 10px;border-radius:7px;display:flex;align-items:center;gap:8px;font-size:12px;"
+                     f"border-color:#d0d7de'><span class=mono style='font-size:12px;white-space:nowrap'>{short(k)}</span>{tag}"
+                     f"<span style='margin-left:auto;color:#57606a;font-size:11px'>깊이 {dep} · 경고 {tot}</span>"
+                     f"<span style='display:inline-flex;border-radius:3px;overflow:hidden'>{bar}</span></div>")
+    svg = "".join(f"<path d='M{X_B + W_B} {yb + 12} C {X_B + W_B + 70} {yb + 12}, {X_C - 70} {yc + 12}, {X_C} {yc + 12}' "
+                  f"fill='none' stroke='#8c959f' stroke-opacity='.55' stroke-width='{1 + min(w, 60) / 15:.1f}'/>"
+                  for yb, yc, w in edges)
+    tot_pk = sum(d["packages"] for d in data.values())
+    tot_dir = sum(d["counts"].get("direct", 0) for d in data.values())
+    head = (f"<div style='position:absolute;left:28px;top:22px;font-size:22px;font-weight:800'>전체 서비스 의존성 지도</div>"
+            f"<div style='position:absolute;left:28px;top:56px;font-size:14px;color:#57606a'>본인 레포 5개 · 패키지 {tot_pk}개 중 "
+            f"직접 선언 {tot_dir}개 · 취약 패키지 {len(vul)}개 (서비스별) · 선은 대표 경로의 첫 단계</div>"
+            f"<div style='position:absolute;left:{X_B}px;top:82px;font-size:13px;font-weight:700;color:#57606a'>직접 의존 → 아래 전이 패키지 수</div>"
+            f"<div style='position:absolute;left:{X_C}px;top:82px;font-size:13px;font-weight:700;color:#57606a'>취약 패키지 · 경로 깊이 · 판정 분포</div>")
+    legend = (f"<div style='position:absolute;left:28px;top:{H - 44}px;font-size:13px;color:#57606a;display:flex;gap:18px'>"
+              "<span><b style='color:#e53935'>■</b> 영향 있음</span><span><b style='color:#1e88e5'>■</b> 근거와 함께 제외</span>"
+              "<span><b style='color:#fb8c00'>■</b> 사람 검토</span><span style='color:#8e24aa'>공유 = 2개 이상 서비스에 같은 취약 패키지</span>"
+              "<span>미참조·도구 = 선언한 의존성에서 도달하지 않는 설치 패키지</span></div>")
+    html = (f"<div class='card' style='position:relative;width:1120px;height:{H}px;padding:0'>{head}"
+            f"<svg style='position:absolute;left:0;top:0' width='1120' height='{H}'>{svg}</svg>{''.join(parts)}{legend}</div>")
+    shot(html, HERE / "deps_map.png", 1120, H)
+
 
 
 # ── static: architecture ──────────────────────────────────────────────────────────
@@ -128,7 +243,7 @@ def warnings():
     shot(html, HERE / "warnings.png", 1060, 356)
 
 
-# ── gif: judge walk-through on the real showcase case ────────────────────────────
+# ── judge walk-through on the real showcase case ─────────────────────────────────
 JUDGE_STEPS = [
     ("스캐너", "rembg 2.0.61 이 취약 버전 범위에 들어감 → <b>경고</b>", "bad",
      "버전만 보면 CVSS 8.6 경고. 실제로 위험한가?"),
@@ -165,36 +280,37 @@ LOOP_STEPS = [
 ]
 
 
-def step_frame(steps, k, title, h):
+def step_frame(steps, k, title, h, cap=None, highlight=True):
     rows = []
     for i, (t, body, cls, _) in enumerate(steps):
         vis = "1" if i <= k else "0.0"
-        cur = "box-shadow:0 0 0 3px rgba(9,105,218,.25);" if i == k else ""
+        cur = "box-shadow:0 0 0 3px rgba(9,105,218,.25);" if highlight and i == k else ""
         rows.append(f"<div class='card {cls}' style='opacity:{vis};padding:10px 16px;border-radius:12px;border-width:1.5px;"
                     f"display:flex;gap:16px;align-items:center;{cur}'><div style='width:170px;font-weight:800;font-size:15px'>{t}</div>"
                     f"<div style='flex:1;font-size:15px;line-height:1.45'>{body}</div></div>")
-    cap = steps[k][3]
+    cap = cap or steps[k][3]
     return (f"<div style='width:960px;height:{h}px;background:#fff;padding:22px 28px;display:flex;flex-direction:column;gap:8px'>"
             f"<div style='display:flex;justify-content:space-between;align-items:baseline'><div style='font-size:20px;font-weight:800'>"
             f"{title}</div><div style='font-size:13px;color:#57606a'>"
-            f"{k + 1}/{len(steps)}</div></div><div style='font-size:15px;color:#0969da;font-weight:700;margin-bottom:4px'>"
+            f"{'' if not highlight else f'{k + 1}/{len(steps)}'}</div></div><div style='font-size:15px;color:#0969da;font-weight:700;margin-bottom:4px'>"
             f"{cap}</div>{''.join(rows)}</div>")
 
 
-def steps_gif(steps, title, out, h):
-    frames = [(step_frame(steps, k, title, h), 2.2 if k < len(steps) - 1 else 4.0) for k in range(len(steps))]
-    gif(frames, HERE / out, 960, h)
+def steps_png(steps, title, cap, out, h):
+    shot(step_frame(steps, len(steps) - 1, title, h, cap=cap, highlight=False), HERE / out, 960, h, transparent=False)
 
 
-def judge_gif():
-    steps_gif(JUDGE_STEPS, "판정 예시 · podcast4life · rembg@2.0.61 · CVE-2026-115924", "judge.gif", 600)
+def judge_png():
+    steps_png(JUDGE_STEPS, "판정 예시 · podcast4life · rembg@2.0.61 · CVE-2026-115924",
+              "CVSS 8.6 경고를 버전이 아니라 발동 조건으로 따져, 근거와 함께 거른 실제 사례", "judge.png", 600)
 
 
-def loop_gif():
-    steps_gif(LOOP_STEPS, "개선 루프 · 사람의 결정이 다음 판정이 된다 (동작 예시)", "loop.gif", 450)
+def loop_png():
+    steps_png(LOOP_STEPS, "개선 루프 · 사람의 결정이 다음 판정이 된다 (동작 예시)",
+              "에이전트가 모르는 건 사람에게, 사람의 결정은 다음 실행의 규칙으로", "loop.png", 450)
 
 
-# ── gif: terminal replay of a real run ────────────────────────────────────────────
+# ── terminal: stage lines of a real run ────────────────────────────────────────────
 STAGES = ["[1/8] scan (syft → grype)", "[2/8] ingest", "[3/8] enrich (OSV aliases · EPSS · KEV)", "[4/8] graph + score",
           "[5/8] judge (LLM: advisory → conditions · CODE: range/search/rules)"]
 TAIL = ["[6/8] plan (greedy weighted set cover)", "[7/8] report", "[8/8] feedback · eval"]
@@ -203,45 +319,28 @@ TICKETS = ["T01-upgrade-pypi-pillow.md", "T02-upgrade-pypi-aiohttp.md", "T03-upg
 
 def term(lines, cursor=True):
     body = "<br>".join(lines) + ("<span style='background:#c9d1d9'>&nbsp;</span>" if cursor else "")
-    return (f"<div style='width:960px;height:540px;background:#0d1117;padding:0'>"
+    return (f"<div style='width:960px;height:470px;background:#0d1117;padding:0'>"
             f"<div style='height:34px;background:#161b22;display:flex;align-items:center;gap:8px;padding:0 14px'>"
             f"<span style='width:12px;height:12px;border-radius:6px;background:#ff5f56'></span>"
             f"<span style='width:12px;height:12px;border-radius:6px;background:#ffbd2e'></span>"
             f"<span style='width:12px;height:12px;border-radius:6px;background:#27c93f'></span>"
-            f"<span style='margin-left:auto;color:#8b949e;font-size:12px'>실제 실행 출력 · 140초 → 12초로 압축</span></div>"
+            f"<span style='margin-left:auto;color:#8b949e;font-size:12px'>실제 실행 출력 · 2026-11-02 · 140초</span></div>"
             f"<div class=mono style='color:#c9d1d9;font-size:15px;line-height:1.6;padding:16px 20px'>{body}</div></div>")
 
 
-def demo_gif():
+def demo_png():
     p = "<span style='color:#7ee787'>$</span> "
-    cmd = ".venv/bin/python -m sca run --skip-scan --offline"
-    frames = []
-    for n in (8, 24, len(cmd)):
-        frames.append((term([p + cmd[:n]]), 0.35))
-    done = [p + cmd]
-    for s in STAGES[:-1]:
-        done = done + [s]
-        frames.append((term(done), 0.35))
-    done = done + [STAGES[-1]]
-    for n in (10, 40, 80, 120, 150, 174):  # the real run prints "judge N/174" every 10 items
-        frames.append((term(done + [f"&nbsp;&nbsp;judge {n}/174"]), 0.5))
-    done = done + ["&nbsp;&nbsp;judge 174/174"]
-    for s in TAIL:
-        done = done + [s]
-        frames.append((term(done), 0.45))
-    done = done + ["", p + "ls out/tickets"]
-    frames.append((term(done), 0.8))
-    done = done + [f"<span style='color:#79c0ff'>{t}</span>" for t in TICKETS]
-    frames.append((term(done), 4.0))
-    gif(frames, HERE / "demo.gif", 960, 540)
+    lines = ([p + ".venv/bin/python -m sca run --skip-scan --offline"] + STAGES + ["&nbsp;&nbsp;judge 174/174"] + TAIL
+             + ["", p + "ls out/tickets"] + [f"<span style='color:#79c0ff'>{t}</span>" for t in TICKETS])
+    shot(term(lines, cursor=False), HERE / "demo.png", 960, 470, transparent=False)
 
 
 if __name__ == "__main__":
-    assert shutil.which("ffmpeg"), "ffmpeg required"
+    deps_map()
     architecture()
     warnings()
-    judge_gif()
-    demo_gif()
-    loop_gif()
-    for f in ("architecture.png", "warnings.png", "judge.gif", "demo.gif", "loop.gif"):
+    judge_png()
+    loop_png()
+    demo_png()
+    for f in ("deps_map.png", "architecture.png", "warnings.png", "judge.png", "loop.png", "demo.png"):
         print(f, (HERE / f).stat().st_size // 1024, "KB")

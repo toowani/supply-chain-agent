@@ -5,13 +5,27 @@
 
 ![python](https://img.shields.io/badge/python-3.11-3776AB) ![tests](https://img.shields.io/badge/tests-131%20passed-2ea44f) ![LLM](https://img.shields.io/badge/LLM-gpt--oss%3A20b%20(local)-6f42c1) ![scope](https://img.shields.io/badge/pilot-5%20repos%20%C2%B7%20174%20findings-lightgrey)
 
-<p align="center"><img src="out/graph_top_path.png" width="760" alt="최고 위험 경로: 팀 → 서비스 → 직접 의존 → 취약 패키지 → CVE"></p>
+## 왜 만들었나
 
-## 실행 모습
+### 문제의식: 스캐너는 "찾기"까지만 해 준다
 
-<p align="center"><img src="docs/assets/demo.gif" width="760" alt="sca run 실제 실행 출력 (시간 압축)"></p>
+- **보이지 않는 부품이 대부분이다.** 파일럿 서비스 5개에 실제로 설치된 패키지 698개 중 개발자가 직접 선언한 것은 24개(3.4%)다. 취약 패키지 30개 중 27개도 선언하지 않은 부품이다. Log4Shell 때 "우리 어느 서비스에 들어 있나"를 찾는 데 오래 걸린 이유와 같다.
+- **경고는 많고, 진짜 위험은 적다.** 스캐너는 버전만 맞으면 경고하므로 이 파일럿에서만 174건이 나왔다. 표본 56건을 권고문과 코드로 따져 보니 실제 영향(affected)은 2건이었다(AI 라벨 초안 기준). 심각도(CVSS) 상위 10건과 실제 위험도 상위 10건은 절반만 겹쳤다.
 
-## 한눈에 보기
+### 풀려는 병목: 경고 한 건마다 사람이 권고문과 코드를 읽는 일
+
+스캐너 다음 단계는 대부분 수작업이다. 담당자가 경고마다 ① 어느 서비스의 어떤 경로로 들어왔는지 찾고, ② 공개 권고문에서 발동 조건을 읽고, ③ 우리 코드가 그 조건을 쓰는지 뒤지고, ④ 고칠지 말지 정한다. 계열사가 많은 그룹 SI에서는 이 일이 서비스 수만큼 반복된다. 이 에이전트는 ①과 ③을 코드로, ②를 LLM으로 처리하고, 확신이 없는 건만 근거를 붙여 ④의 사람에게 넘긴다.
+
+### 왜 내 프로젝트로 했나
+
+- **실제로 운영 중인 서비스다.** SSO 인증 서버, 팟캐스트 편집·게시 파이프라인과 댓글 Worker, 수업 기록 사이트, 크론·배치 작업이다. 장난감 예제가 아니라 실제 lockfile과 설치 상태를 스캔했다.
+- **그룹 SI의 축소판이다.** Python과 npm이 섞여 있고, 인터넷 노출과 내부 서비스, 담당 팀이 다르다. 각 서비스를 가상의 계열사 조직에 배정했다(`config/assets.yaml`).
+- **정답을 확인할 수 있다.** 코드를 직접 알고 있어서 에이전트의 판정이 맞았는지 정답셋으로 검증할 수 있다. 롯데 내부 데이터는 예선에서 쓸 수 없으므로, 본선 현장 데이터가 오면 입력 파서(ingest)만 바꾼다.
+- **내부 정보 보호를 실제로 시험한다.** 일부 레포가 비공개라서 "소스 코드와 자산 정보는 LLM에 보내지 않는다"는 설계를 그대로 적용해야 했다.
+
+<p align="center"><img src="docs/assets/deps_map.png" width="900" alt="전체 서비스 의존성 지도: 서비스 5개 → 직접 의존 24개 → 취약 패키지 30개"></p>
+
+## 결과
 
 | | 결과 (본인 레포 5개 파일럿) |
 |---|---|
@@ -39,7 +53,7 @@
 
 ## 판정 — LLM은 조건만 뽑고, 판정은 코드가
 
-<p align="center"><img src="docs/assets/judge.gif" width="760" alt="판정 과정 애니메이션: 권고문 → LLM 조건 추출 → 원문 대조 → 코드 검색 → not_affected"></p>
+<p align="center"><img src="docs/assets/judge.png" width="760" alt="판정 예시: 권고문 → LLM 조건 추출 → 원문 대조 → 코드 검색 → not_affected"></p>
 
 - **내부 정보 보호**: 외부 LLM에는 공개 권고문만 보낸다. 자산 정보와 소스 코드는 코드에서만 결합한다.
 - **모델 교체**: OpenAI SDK + `base_url`. 기본은 로컬 Ollama(gpt-oss:20b), 환경변수로 OpenAI·사내 모델로 바꾼다(OpenAI 경로는 미검증).
@@ -47,11 +61,13 @@
 
 ## 개선 루프 — 사람의 결정이 다음 판정이 된다
 
-<p align="center"><img src="docs/assets/loop.gif" width="760" alt="개선 루프 애니메이션: uncertain → 담당자 기각 → 다음 실행에서 자동 정리 → OpenVEX → 재스캔으로 해소 확인"></p>
+<p align="center"><img src="docs/assets/loop.png" width="760" alt="개선 루프: uncertain → 담당자 기각 → 다음 실행에서 자동 정리 → OpenVEX → 재스캔으로 해소 확인"></p>
 
 사람 검토 117건 중 74%(87건)는 의존 패키지 내부 호출 여부 문제다. 콜그래프를 붙이면 검토율이 67.2%에서 약 19%로 줄 것으로 추정한다(추정치).
 
 ## 실행
+
+<p align="center"><img src="docs/assets/demo.png" width="760" alt="sca run 실제 실행 출력"></p>
 
 ```bash
 brew install syft grype uv ollama && ollama pull gpt-oss:20b
