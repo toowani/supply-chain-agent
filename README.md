@@ -1,6 +1,7 @@
 # SW 공급망 스캐닝 AI 에이전트
 
 > 취약점 경고를 **서비스 영향도**로 잇고, **근거와 함께 거르고**, 조치안과 사람 피드백으로 닫는다.
+>
 > LOTTE AX Challenge 2026 · 롯데이노베이트 [인프라] 예선 PoC
 
 ![python](https://img.shields.io/badge/python-3.11-3776AB) ![tests](https://img.shields.io/badge/tests-131%20passed-2ea44f) ![LLM](https://img.shields.io/badge/LLM-gpt--oss%3A20b%20(local)-6f42c1) ![scope](https://img.shields.io/badge/pilot-5%20repos%20%C2%B7%20174%20findings-lightgrey)
