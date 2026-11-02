@@ -35,6 +35,7 @@ flowchart TB
     s1["Syft SBOM<br/>(설치 상태)"]
     s2["Grype / Trivy<br/>스캔 결과"]
     s3["assets.yaml<br/>노출·중요도·담당팀"]
+    s1 ~~~ s2 ~~~ s3
   end
   subgraph A["분석 — 영향도·우선순위"]
     direction LR
@@ -49,6 +50,7 @@ flowchart TB
     o1["순위 CSV · 리포트"]
     o2["담당팀별 티켓"]
     o3["OpenVEX · KPI"]
+    o1 ~~~ o2 ~~~ o3
   end
   IN --> A --> B --> OUT
   rep --> fb["⑧ 사람 승인·기각"]
