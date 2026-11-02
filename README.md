@@ -22,7 +22,7 @@
 
 <p align="center"><img src="docs/assets/warnings.png" width="860" alt="경고 174건의 행방과 사람 검토 117건의 원인"></p>
 
-## 구조 — 계산은 코드, 해석은 LLM, 결정은 사람
+## 구조
 
 <p align="center"><img src="docs/assets/architecture.png" width="860" alt="구조도: 입력 → 분석 → 판정·조치 → 산출물, 사람 피드백 루프"></p>
 
