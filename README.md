@@ -53,8 +53,8 @@ flowchart TB
     o1 ~~~ o2 ~~~ o3
   end
   IN --> A --> B --> OUT
-  rep --> fb["⑧ 사람 승인·기각"]
-  fb -->|다음 실행에 반영| jdg
+  OUT --> fb["⑧ 사람 승인·기각<br/>다음 실행의 판정에 반영"]
+  fb -.-> B
 
   classDef code fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
   classDef llm fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
